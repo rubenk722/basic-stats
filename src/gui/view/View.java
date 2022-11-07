@@ -15,4 +15,10 @@ public interface View
      * @param model The current BasicStatsModel to be visualized
      */
     public void update(BasicStatsModel model);
+
+    /**
+     * Resets this View to erase any displayed value.
+     *
+     */
+    public void Reset();
 }

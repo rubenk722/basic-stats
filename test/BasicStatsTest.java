@@ -1,4 +1,7 @@
 import org.junit.Test;
+
+import gui.BasicStats;
+
 import static org.junit.Assert.*;
 
 public class BasicStatsTest {
