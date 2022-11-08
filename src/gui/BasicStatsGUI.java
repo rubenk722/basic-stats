@@ -9,6 +9,7 @@ import java.awt.event.*;
 import model.BasicStatsModel;
 import gui.view.AddNumView;
 import gui.view.CountView;
+import gui.view.MaxView;
 import gui.view.MeanView;
 import gui.view.MedianView;
 import gui.view.NumbersView;
@@ -33,6 +34,7 @@ public class BasicStatsGUI implements View
 	private CountView countView = new CountView();
 	private MedianView medianView = new MedianView();
 	private MeanView meanView = new MeanView();
+	private MaxView maxView =  new MaxView();
 	private NumbersView numbersView = new NumbersView();
 	private AddNumView addNumView = new AddNumView(this, model);
 	private ResetView resetView = new ResetView(this, model);
@@ -52,6 +54,8 @@ public class BasicStatsGUI implements View
 	jpStats.add(medianView.getTextField());
 	jpStats.add(new JLabel("Mean:"));
 	jpStats.add(meanView.getTextField());
+	jpStats.add(new JLabel("Max:"));
+	jpStats.add(maxView.getTextField());
 	jfMain.getContentPane().add(jpStats, BorderLayout.CENTER);
 	
 	// TextArea that shows all the numbers
@@ -73,6 +77,7 @@ public class BasicStatsGUI implements View
 		countView.update(model);
 		medianView.update(model);
 		meanView.update(model);
+		maxView.update(model);
     }
 
 	//Resets all views when called
@@ -82,7 +87,7 @@ public class BasicStatsGUI implements View
 		countView.Reset();
 		medianView.Reset();
 		meanView.Reset();
-
+		maxView.Reset();
 	}
 
     public void show() {
