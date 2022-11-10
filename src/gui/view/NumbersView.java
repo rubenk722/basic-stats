@@ -19,10 +19,14 @@ public class NumbersView implements View{
         if (model.getArrayDouble().length == 0) {
             jtaNumbers.setText("");
         }
+        else if (model.getArrayDouble().length == 1) {
+            double num = model.getArrayDouble()[model.getArrayDouble().length - 1];
+            jtaNumbers.append(num + "");
+        } 
         else {
             // Update the displayed list of numbers
             double num = model.getArrayDouble()[model.getArrayDouble().length - 1];
-            jtaNumbers.append(num + ","); 
+            jtaNumbers.append(", " + num); 
         }
     }
 

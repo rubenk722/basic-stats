@@ -73,9 +73,12 @@ public class BasicStats {
     /**
      * Compute the max of an array of numbers.
      */
-    public static double max(double ... numbers) {
+    public static double max(double ... numbers) throws ArrayIndexOutOfBoundsException {
+      if (numbers.equals(null))  {
+        throw new ArrayIndexOutOfBoundsException();
+      }
       double max = numbers[0];
-      for (double num : numbers) {
+      for (Double num : numbers) {
         if (num >= max) {
           max = num;
         }

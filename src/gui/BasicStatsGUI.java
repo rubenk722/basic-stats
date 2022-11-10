@@ -90,6 +90,44 @@ public class BasicStatsGUI implements View
 		maxView.Reset();
 	}
 
+	//return text in textboxes of each view
+	public JTextField getAddNumView() {
+		return addNumView.getTextField();
+	}
+
+	public JTextField getCountView() {
+		return countView.getTextField();
+	}
+
+	public JTextField getMedianView() {
+		return medianView.getTextField();
+	}
+
+	public JTextField getMeanView() {
+		return meanView.getTextField();
+	}
+
+	public JTextField getMaxView() {
+		return maxView.getTextField();
+	}
+
+	public JTextArea getNumbersView() {
+		return numbersView.getTextArea();
+	}
+
+	//Get Buttons of the controllers
+	public JButton getAddNumButton() {
+		return addNumView.getButton();
+	}
+
+	public JButton getResetButton() {
+		return resetView.getButton();
+	}
+
+	public BasicStatsModel getModel() {
+		return model;
+	}
+
     public void show() {
 	// Show the frame
 	jfMain.setVisible(true);
