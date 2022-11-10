@@ -27,4 +27,6 @@ Program features:
 * Displays a set of entered numbers.
 * Computes the mean of the set of numbers.
 * Computes the median of the set of numbers.
+* Computes the maxium of the set of numbers.
+   * Max also includes input validation for empty arrays
     
