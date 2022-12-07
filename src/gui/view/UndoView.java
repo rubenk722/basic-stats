@@ -12,11 +12,13 @@ public class UndoView implements View {
 
     private BasicStatsGUI gui;
     private JButton jbUndo;
+    private boolean isEnabled;
 
     public UndoView(BasicStatsGUI gui, JPanel jpInput) {
         jbUndo = new JButton("Undo");
         jbUndo.setEnabled(false);
         this.gui = gui;
+        isEnabled = false;
 
         jbUndo.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -31,8 +33,10 @@ public class UndoView implements View {
     public void update(BasicStatsModel model) {
         if (model != null && model.getArrayDouble().length != 0) {
             jbUndo.setEnabled(true);
+            isEnabled = true;
         } else {
             jbUndo.setEnabled(false);
+            isEnabled = false;
         }
     }
 
@@ -41,4 +45,7 @@ public class UndoView implements View {
         return "";
     }
     
+    public boolean isEnabled() {
+        return isEnabled;
+    }
 }

@@ -34,6 +34,7 @@ public class BasicStatsGUI implements View
     /** The GUI is applying the Composite design pattern */
     private java.util.List<View> views = new ArrayList<View>();
     private JFrame jfMain = new JFrame(APP_TITLE);
+	private UndoView undoView;
 
     public BasicStatsGUI() {	
 	// Create the main frame of the application, and set size and position
@@ -74,7 +75,7 @@ public class BasicStatsGUI implements View
 	});
 	jpInput.add(jbReset);
 	
-	UndoView undoView = new UndoView(this, jpInput);
+	undoView = new UndoView(this, jpInput);
 	addView(undoView);
 	
 	jfMain.getContentPane().add(jpInput, BorderLayout.NORTH);
@@ -128,6 +129,11 @@ public class BasicStatsGUI implements View
 			currentView.update(model);
 		}
     }
+
+	//for testing undo enabling
+	public boolean undoIsEnabled() {
+		return undoView.isEnabled();
+	}
 
     public String getStringValue() {
 	java.util.List<String> stringValueList = new ArrayList<String>();

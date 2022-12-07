@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 
 import gui.BasicStats;
 import gui.BasicStatsGUI;
+import gui.view.UndoView;
 import model.BasicStatsModel;
 
 public class BasicStatsTest {
@@ -222,5 +223,32 @@ public class BasicStatsTest {
       double[] numbers5 = {};
       mode   = BasicStats.mode(numbers5);
       assertEquals (0, mode, EPS);
+    }
+
+    @Test
+    public void testUndoDisabledInInitialState() {
+        setUp(); //initial configuration
+        assertFalse(gui.undoIsEnabled());
+
+        gui.addNumber(1.0);
+        gui.addNumber(1.0);
+        gui.reset(); //after reset
+
+        assertFalse(gui.undoIsEnabled());
+        tearDown();
+    }
+
+    @Test
+    public void testUndoEnabledAfterAddingNumber() {
+        setUp(); //initial configuration
+
+        gui.addNumber(1.0);
+        gui.addNumber(1.0);
+
+        assertTrue(gui.undoIsEnabled());
+
+        gui.undo();
+        assert(gui.getArrayDouble().length == 1);
+        tearDown();
     }
 }
