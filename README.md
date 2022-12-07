@@ -27,4 +27,5 @@ Program features:
 * Displays a set of entered numbers.
 * Computes the mean of the set of numbers.
 * Computes the median of the set of numbers.
-* Computes the maximum of the set of numbers.    
+* Computes the maximum of the set of numbers.  
+* Contains the option to undo the previous number selection
