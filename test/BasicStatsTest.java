@@ -107,6 +107,7 @@ public class BasicStatsTest {
 	expected.add("" + BasicStats.maximum(modelData));
 	expected.add("" + num + ",");
 	expected.add("");
+    expected.add("");
 	assertEquals(expected.toString(), gui.getStringValue());
 	// Call the unit under test
 	gui.reset();

@@ -45,6 +45,18 @@ public class BasicStatsModel
     }
 
     /**
+     * removes the previous element from the list of numbers.
+     *
+     * Post-condition: The list of numbers contains one less element.
+     */
+    public void undo() {
+        if (data == null || data.size() == 0)  {
+            throw new NullPointerException("cannot undo with an empty model");
+        }
+        this.data.remove(this.data.size() - 1);
+    }
+
+    /**
      * Converts from a list of doubles to an array of doubles.
      *
      * @return An array of doubles that contains all of numbers

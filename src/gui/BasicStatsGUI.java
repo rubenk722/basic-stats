@@ -5,6 +5,7 @@ import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.lang.instrument.UnmodifiableClassException;
 
 import model.BasicStatsModel;
 import gui.view.CountView;
@@ -12,6 +13,7 @@ import gui.view.MeanView;
 import gui.view.MedianView;
 import gui.view.MaximumView;
 import gui.view.NumbersView;
+import gui.view.UndoView;
 import gui.view.View;
 
 
@@ -69,9 +71,11 @@ public class BasicStatsGUI implements View
 		public void actionPerformed(ActionEvent e) {
 		    reset();
 		}
-	    });
+	});
 	jpInput.add(jbReset);
 	
+	UndoView undoView = new UndoView(this, jpInput);
+	addView(undoView);
 	
 	jfMain.getContentPane().add(jpInput, BorderLayout.NORTH);
     }
@@ -112,11 +116,17 @@ public class BasicStatsGUI implements View
 	update(model);
     }
 
+	//undo method for gui
+	public void undo() {
+		model.undo();
+		update(model);
+	}
+
     public void update(BasicStatsModel model) {
 	// For the Composite design pattern, iterate calling each non-null component.
-	for (View currentView : views) {
-	    currentView.update(model);
-	}
+		for (View currentView : views) {
+			currentView.update(model);
+		}
     }
 
     public String getStringValue() {
